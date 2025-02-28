@@ -12,7 +12,6 @@ import {
   BarChart,
   Bar,
   XAxis,
-  YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
@@ -36,13 +35,24 @@ const Chart = ({
           Displaying minimum, median, and maximum salaries (in thousands)
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="h-[400px]">
+      <CardContent className="p-2 w-full md:p-4 lg:p-6">
+        <div className="h-[420px] w-full">
           <ResponsiveContainer>
             <BarChart data={salaryData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="role" tick={{ fontSize: 14 }} />
-              <YAxis />
+              <XAxis
+                dataKey="role"
+                tick={{ fontSize: 12 }}
+                angle={-25}
+                textAnchor="middle"
+                tickMargin={10}
+                tickFormatter={(value: string) => {
+                  const truncatedValue = value.split(" ")[0];
+                  return truncatedValue.length < value.length
+                    ? `${truncatedValue}...`
+                    : truncatedValue;
+                }}
+              />
               <Tooltip
                 content={({ active, payload, label }) => {
                   if (active && payload && payload.length) {

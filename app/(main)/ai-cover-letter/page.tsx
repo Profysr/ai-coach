@@ -1,7 +1,7 @@
 import React from "react";
 
-const page = () => {
-  return <div>page</div>;
+const AICoverLetterPage = () => {
+  return <div>AICoverLetterPage</div>;
 };
 
-export default page;
+export default AICoverLetterPage;

@@ -4,7 +4,7 @@ import { industries } from "@/data/industries";
 import { getOnBoardingStatus } from "@/server/user";
 import { redirect } from "next/navigation";
 
-const page = async () => {
+const OnBoardingPage = async () => {
   const { isOnBoarded } = await getOnBoardingStatus();
 
   if (isOnBoarded) {
@@ -14,4 +14,4 @@ const page = async () => {
   return <OnboardingForm industries={industries} />;
 };
 
-export default page;
+export default OnBoardingPage;

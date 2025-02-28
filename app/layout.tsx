@@ -47,18 +47,18 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Header />
             <Suspense
               fallback={
                 <div className="flex items-center justify-center min-h-screen">
-                  <HashLoader size={100} color="#ffffff" />
+                  <HashLoader size={100} color="gray" />
                 </div>
               }
             >
-              <Header />
               <main className="min-h-screen">{children}</main>
-              <Toaster richColors />
-              <Footer />
             </Suspense>
+            <Toaster richColors />
+            <Footer />
           </ThemeProvider>
         </body>
       </html>

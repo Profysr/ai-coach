@@ -2,11 +2,7 @@
 
 import { db } from "@/lib/prisma";
 import { validateUser } from "./user";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const geminiApiKey = process.env.GEMINI_API_KEY as string;
-const genAI = new GoogleGenerativeAI(geminiApiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+import { geminiModel } from "@/data/modelKeys";
 
 export async function generateAIInsights(industry: string | null) {
   const prompt = `
@@ -29,20 +25,19 @@ export async function generateAIInsights(industry: string | null) {
           Include at least 5 skills and trends.
         `;
 
-  const result = await model.generateContent(prompt);
+  const result = await geminiModel.generateContent(prompt);
   const text = result?.response?.text?.();
   const cleanedText = text.replace(/^```json|```$/g, "").trim();
 
   try {
     return JSON.parse(cleanedText);
   } catch (error) {
-    console.error(
-      "Failed to parse AI response: ",
-      error,
-      "cleaned Text: ",
-      cleanedText
-    );
-    throw new Error("Invalid JSON received from AI");
+    return {
+      success: false,
+      message: `Failed to parse the generated JSON: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    };
   }
 }
 

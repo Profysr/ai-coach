@@ -29,5 +29,5 @@ export function useFetch<T, A extends any[]>(
     }
   };
 
-  return { ...state, fetchData };
+  return { ...state, fetchData, setState };
 }

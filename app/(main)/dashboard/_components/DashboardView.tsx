@@ -36,8 +36,8 @@ export type Insights = {
   marketOutlook: string;
   keyTrends: string[];
   recommendedSkills: string[];
-  lastUpdated: string; // Or Date if parsed
-  nextUpdate: string; // Or Date if parsed
+  lastUpdated: Date; // Or Date if parsed
+  nextUpdate: Date; // Or Date if parsed
 };
 
 export type InsightsProp = {
