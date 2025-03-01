@@ -1,9 +1,10 @@
+"use server";
 import { db } from "@/lib/prisma";
 import { validateUser } from "./user";
 import { revalidatePath } from "next/cache";
 import { geminiModel } from "@/data/modelKeys";
 
-export const saveResume = async (content) => {
+export const saveResume = async (content: string) => {
   const loggedUser = await validateUser();
 
   if (!loggedUser)
@@ -43,7 +44,7 @@ export const saveResume = async (content) => {
     return {
       success: true,
       message: "Resume saved successfully",
-      data: resume,
+      resume,
     };
   } catch (error) {
     return {
@@ -87,7 +88,7 @@ export const getResume = async () => {
     return {
       success: true,
       message: "Resume fetched successfully",
-      data: resume,
+      resume,
     };
   } catch (error) {
     return {
@@ -99,7 +100,13 @@ export const getResume = async () => {
   }
 };
 
-export const improveWithAi = async ({ current, type }) => {
+export const improveWithAi = async ({
+  current,
+  type,
+}: {
+  current: string;
+  type: string;
+}) => {
   const loggedUser = await validateUser();
 
   if (!loggedUser)

@@ -52,27 +52,15 @@ export const generateAutomaticInsights = inngest.createFunction(
         prompt
       );
 
-      // const text =
-      //   res?.response?.candidates && res?.response?.candidates?.length > 0
-      //     ? res.response
-      //     : "";
+      const firstPart = !result.response.candidates
+        ? ""
+        : result.response.candidates![0].content.parts[0];
+      const text = firstPart && "text" in firstPart ? firstPart.text : "";
 
-      const text =
-        result!.response!.candidates!.length > 0
-          ? result!.response!.candidates![0].content!.parts![0].text!
-          : "";
-
-      const withoutText =
-        result!.response!.candidates!.length > 0
-          ? result!.response!.candidates![0].content!.parts![0]
-          : "";
-
-      console.log("Inngest Function Output", withoutText);
+      console.log("Inngest Function Output", text);
 
       const cleanedText = text.replace(/^```json|```$/g, "").trim();
       const insights = await JSON.parse(cleanedText);
-
-      console.log("Insights", insights);
 
       await step.run(`Update ${industry} insights`, async () => {
         await db.industryInsight.update({

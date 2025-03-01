@@ -38,7 +38,7 @@ const Header = async () => {
         <div className="flex items-center gap-2">
           <SignedIn>
             <Link href={"/dashboard"}>
-              <Button>
+              <Button variant={"outline"}>
                 <LayoutDashboard className="h-4 w-4" />
                 <span className="hidden md:block">Industry Insights</span>
               </Button>
@@ -46,30 +46,31 @@ const Header = async () => {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant={"outline"}>
+                <Button variant={"default"}>
                   <StarIcon className="h-4 w-4" />
                   <span className="hidden md:block">Growth Tools</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
+
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem>
-                  <Link className="flex items-center gap-2" href={"/resume"}>
+                <DropdownMenuItem asChild>
+                  <Link href="/resume" className="flex items-center gap-2">
                     <FileText className="h-4 w-4" />
                     Build Resume
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link
+                    href="/ai-cover-letter"
                     className="flex items-center gap-2"
-                    href={"/ai-cover-letter"}
                   >
                     <PenBox className="h-4 w-4" />
                     Cover Letter
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link className="flex items-center gap-2" href={"/interview"}>
+                <DropdownMenuItem asChild>
+                  <Link href="/interview" className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4" />
                     Interview Prep
                   </Link>
