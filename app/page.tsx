@@ -22,7 +22,7 @@ export default async function Home() {
 
       <HeroSection />
 
-      <section className="py-12 md:py-24 lg:py-32 w-full bg-background mt-8">
+      <section className="py-12 md:py-24 lg:py-32 w-full bg-muted/25 mt-8">
         <div className="container mx-auto px-4">
           <div className="space-y-6 text-center">
             {/* Heading  */}
@@ -54,9 +54,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 bg-muted/75 w-full">
+      <section className="py-12 md:py-24 bg-background/50 w-full">
         <div className="px-4 container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto w-screen">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {stats.map((curr, idx) => (
               <div
                 key={idx}
@@ -70,7 +70,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 lg:py-32 w-full bg-background">
+      <section className="py-12 md:py-24 lg:py-32 w-full bg-background/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold">How it Works</h2>
@@ -147,7 +147,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 lg:py-32 w-full bg-background">
+      <section className="py-12 md:py-24 lg:py-32 w-full bg-background/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center w-full mb-12">
             <h2 className="text-4xl font-bold mb-2">
