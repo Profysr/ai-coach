@@ -22,8 +22,8 @@ import { checkUser } from "@/server/checkUser";
 const Header = async () => {
   await checkUser();
   return (
-    <header className="fixed top-0 left-0 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 z-50 w-full">
-      <nav className=" flex items-center justify-between px-4 container mx-auto h-16">
+    <header className="fixed top-0 left-0 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 z-50 w-screen">
+      <nav className="flex items-center justify-between px-4 container mx-auto h-16">
         <Link href={"/"}>
           <Image
             src={"/logo.png"}

@@ -14,27 +14,11 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-// import { getOnBoardingStatus } from "@/server/user";
-// import { redirect } from "next/navigation";
-// import { checkUser } from "@/server/checkUser";
 
 export default async function Home() {
-  // const { user } = await checkUser();
-
-  // if (user) {
-  //   const { isOnBoarded } = await getOnBoardingStatus();
-  //   console.log("Onboarded Status on /", isOnBoarded);
-
-  //   if (isOnBoarded) {
-  //     redirect("/dashboard");
-  //   } else {
-  //     redirect("/onboarding");
-  //   }
-  // }
-
   return (
     <div className="mx-auto">
-      <div className="grid-background" />
+      <div className="grid-background bg-muted" />
 
       <HeroSection />
 
@@ -52,7 +36,7 @@ export default async function Home() {
               {features.map((curr, idx) => (
                 <Card
                   key={idx}
-                  className="border-2 hover:border-primary transition-colors duration-300 w-full md:basis-80"
+                  className="border-2 hover:border-primary transition-colors duration-300 w-full basis-80"
                 >
                   <CardContent className="pt-6">
                     <div className="flex flex-col justify-center items-center gap-2">
@@ -72,13 +56,13 @@ export default async function Home() {
 
       <section className="py-12 md:py-24 bg-muted/75 w-full">
         <div className="px-4 container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto w-full">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto w-screen">
             {stats.map((curr, idx) => (
               <div
                 key={idx}
                 className="flex flex-col items-center justify-center space-y-2"
               >
-                <h2 className="font-bold text-4xl">{curr.stat}</h2>
+                <h2 className="font-bold text-2xl md:text-4xl">{curr.stat}</h2>
                 <p className="text-muted-foreground">{curr.description}</p>
               </div>
             ))}
@@ -88,7 +72,7 @@ export default async function Home() {
 
       <section className="py-12 md:py-24 lg:py-32 w-full bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center w-full mb-12">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold">How it Works</h2>
             <p className="mt-2 text-muted-foreground ">
               Four simple steps to accelrate your growth
@@ -98,7 +82,7 @@ export default async function Home() {
           <div className="flex justify-center items-center flex-wrap gap-6">
             {howItWorks.map((curr, idx) => {
               return (
-                <Card key={idx} className="border-none w-full md:basis-80">
+                <Card key={idx} className="border-none basis-80">
                   <CardContent className="flex flex-col space-y-4 justify-center items-center text-center">
                     <div className="bg-muted grid place-content-center w-16 h-16 rounded-full cursor-pointer ">
                       {curr.icon}
@@ -113,16 +97,16 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 lg:py-32 w-full">
+      <section className="py-12 md:py-24 lg:py-32 w-screen">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center w-full mb-12">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold ">What Our Users Say</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {testimonial.map((curr, idx) => {
               return (
-                <Card key={idx} className="bg-background">
+                <Card key={idx} className="bg-muted/50">
                   <CardHeader>
                     <div className="flex space-x-4 items-center">
                       <Image
@@ -192,10 +176,10 @@ export default async function Home() {
       <section className="py-12 md:py-24 lg:py-32 w-full gradient">
         <div className="px-4 md:px-6">
           <div className="max-w-3xl mx-auto w-full text-center">
-            <h2 className="text-5xl text-background/80 font-bold mb-2">
+            <h2 className="text-3xl md:text-5xl text-background/80 font-bold mb-2">
               Ready to Accelerate Your Career?
             </h2>
-            <p className="text-background/50 w-[600px] mx-auto">
+            <p className="text-background/50 max-w-[600px] mx-auto">
               Join thousands of professionals who are advancing their careers
               with AI powered guidance{" "}
             </p>

@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
+// @ts-ignore
+import bannerImage from "./banner.jpeg";
 
 const HeroSection = () => {
   const imageRef = useRef<HTMLDivElement>(null);
@@ -44,12 +46,12 @@ const HeroSection = () => {
 
         {/* Buttons */}
         <div className="flex items-center space-x-4 justify-center">
-          <Link href={"/dashboard"}>
+          <Link href={"/sign-in"}>
             <Button size={"lg"}>Get Started</Button>
           </Link>
           <Link href={"/dashboard"}>
             <Button variant={"outline"} size={"lg"}>
-              Get Started
+              Go to Dashboard
             </Button>
           </Link>
         </div>
@@ -58,11 +60,13 @@ const HeroSection = () => {
         <div className="hero-image-wrapper">
           <div className="hero-image" ref={imageRef}>
             <Image
-              src={"/banner.jpeg"}
+              src={bannerImage}
               alt="Banner Image"
-              width={1200}
-              height={720}
-              priority
+              // width={1200}
+              // height={720}
+              // priority
+              loading="lazy"
+              placeholder="blur"
               className="rounded-xl border mx-auto shadow-2xl"
             />
           </div>
