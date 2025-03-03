@@ -75,7 +75,7 @@ const OnboardingForm = ({ industries }: { industries: Industry[] }) => {
   }, [loading, response, router]);
 
   return (
-    <div className="flex justify-center items-center bg-background">
+    <div className="flex justify-center items-center bg-muted/75">
       <Card className="w-full max-w-lg mt-10 mx-2">
         <CardHeader>
           <CardTitle className="gradient-title text-4xl">
